@@ -23,13 +23,16 @@ else
         var jsonElemen = JsonSerializer.Deserialize<JsonElement>(json);
         string formattedJson = JsonSerializer.Serialize(jsonElemen, new JsonSerializerOptions {WriteIndented = true});
 
+        //Se imprime en consola la información
         Console.WriteLine("\n==Información del Pokémon==");
         Console.WriteLine(formattedJson);
     }
     else
     {
+        //Muestra el código de error si no se puede conectar a la URL del API
         Console.WriteLine($"Error. No se pudo obtener la información del Pokémon {nombrePokemon}. Código: {response.StatusCode}");
     }
 }
+//Finaliza el proceso
 Console.WriteLine("\nPresione cualquier tecla para salir...");
 Console.ReadLine();
